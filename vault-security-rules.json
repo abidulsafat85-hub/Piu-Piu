@@ -1,0 +1,133 @@
+{
+  "rules": {
+
+    "vault_security": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+
+    "vault_photos": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+
+    "vault_partner": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+
+    "vault_partner_photos": {
+      "$pairId": {
+        ".read": "auth != null && $pairId.contains(auth.uid)",
+        ".write": "auth != null && $pairId.contains(auth.uid)"
+      }
+    },
+
+    "direct_chats": {
+      "$chatId": {
+        ".read": "auth != null && $chatId.contains(auth.uid)",
+        ".write": "auth != null && $chatId.contains(auth.uid)"
+      }
+    },
+
+    "user_chats": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null"
+      }
+    },
+
+    "users": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+
+    "user_ids": {
+      "$anyId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+
+    "typing": {
+      "$chatId": {
+        ".read": "auth != null && $chatId.contains(auth.uid)",
+        ".write": "auth != null && $chatId.contains(auth.uid)"
+      }
+    },
+
+    "deleted_for": {
+      "$chatId": {
+        ".read": "auth != null && $chatId.contains(auth.uid)",
+        ".write": "auth != null && $chatId.contains(auth.uid)"
+      }
+    },
+
+    "game_invites": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null"
+      }
+    },
+
+    "active_calls": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+
+    "calls": {
+      "$callId": {
+        ".read": "auth != null && $callId.contains(auth.uid)",
+        ".write": "auth != null && $callId.contains(auth.uid)"
+      }
+    },
+
+    "rooms": {
+      "$roomId": {
+        ".read": "auth != null && $roomId.contains(auth.uid)",
+        ".write": "auth != null && $roomId.contains(auth.uid)"
+      }
+    },
+
+    "nicknames": {
+      "$ownerUid": {
+        "$viewerUid": {
+          ".read": "auth != null && (auth.uid === $ownerUid || auth.uid === $viewerUid)",
+          ".write": "auth != null && auth.uid === $ownerUid"
+        }
+      }
+    },
+
+    "messenger_security": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+
+    "app_partner": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+
+    "music_library": {
+      "$pairId": {
+        ".read": "auth != null && $pairId.contains(auth.uid)",
+        ".write": "auth != null && $pairId.contains(auth.uid)"
+      }
+    }
+
+  }
+}
